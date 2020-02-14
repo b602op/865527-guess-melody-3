@@ -11,7 +11,7 @@ it(`Should welcome button be pressed`, () => {
   const onButtonClick = jest.fn();
   const welcomeScreen = shallow(
       <WelcomeScreen
-        errorsCount={3}
+        errorsCount={999}
         handleClick={onButtonClick}
       />
   );
