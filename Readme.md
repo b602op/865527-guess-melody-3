@@ -1,7 +1,7 @@
 # Учебный проект «Угадай мелодию» [![Build status][travis-image]][travis-url]
 
 * Студент: [Эдуард Исполатов](https://up.htmlacademy.ru/react/3/user/865527).
-* Наставник: `Неизвестно`.
+* Наставник: [Николай Папаха](https://up.htmlacademy.ru/react/3/user/1224641).
 
 ---
 
