@@ -1,196 +1,161 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Link changes the class when hovered 1`] = `
-<main
-  className="app"
+exports[`ArtistQuestionScreen is rendered correctly 1`] = `
+<section
+  className="game game--artist"
 >
-  <svg
-    style={
-      Object {
-        "left": "-1200em",
-        "position": "absolute",
-      }
-    }
-    xmlns="http://www.w3.org/2000/svg"
+  <header
+    className="game__header"
   >
-    <filter
-      id="blur"
+    <a
+      className="game__back"
+      href="#"
+      onClick={[Function]}
     >
-      <feGaussianBlur
-        in="SourceGraphic"
-        stdDeviation="5"
+      <span
+        className="visually-hidden"
+      >
+        Сыграть ещё раз
+      </span>
+      <img
+        alt="Угадай мелодию"
+        className="game__logo"
+        src="img/melody-logo-ginger.png"
       />
-      <feOffset
-        dx="0"
-        dy="0"
+    </a>
+    <svg
+      className="timer"
+      viewBox="0 0 780 780"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        className="timer__line"
+        cx="390"
+        cy="390"
+        r="370"
+        style={
+          Object {
+            "filter": "url(#blur)",
+            "transform": "rotate(-90deg) scaleY(-1)",
+            "transformOrigin": "center",
+          }
+        }
       />
-      <feMerge>
-        <feMergeNode />
-        <feMergeNode
-          in="SourceGraphic"
-        />
-      </feMerge>
-    </filter>
-  </svg>
+    </svg>
+    <div
+      className="game__mistakes"
+    >
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
+    </div>
+  </header>
   <section
-    className="main"
-    id="root"
+    className="game__screen"
   >
-    <section
-      className="game game--artist"
+    <h2
+      className="game__title"
     >
-      <header
-        className="game__header"
+      Кто исполняет эту песню?
+    </h2>
+    <div
+      className="game__track"
+    >
+      <div
+        className="track"
       >
-        <a
-          className="game__back"
-          href="#"
-          onClick={[Function]}
+        <button
+          className="track__button track__button--play"
+          type="button"
+        />
+        <div
+          className="track__status"
         >
-          <span
-            className="visually-hidden"
-          >
-            Сыграть ещё раз
-          </span>
+          <audio
+            src="https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg"
+          />
+        </div>
+      </div>
+    </div>
+    <form
+      className="game__artist"
+    >
+      <div
+        className="artist"
+      >
+        <input
+          className="artist__input visually-hidden"
+          id="answer-0"
+          name="answer"
+          onChange={[Function]}
+          type="radio"
+          value="answer-0"
+        />
+        <label
+          className="artist__name"
+          htmlFor="answer-0"
+        >
           <img
-            alt="Угадай мелодию"
-            className="game__logo"
-            src="img/melody-logo-ginger.png"
+            alt="John Snow"
+            className="artist__picture"
+            src="https://api.adorable.io/avatars/128/0"
           />
-        </a>
-        <svg
-          className="timer"
-          viewBox="0 0 780 780"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            className="timer__line"
-            cx="390"
-            cy="390"
-            r="370"
-            style={
-              Object {
-                "filter": "url(#blur)",
-                "transform": "rotate(-90deg) scaleY(-1)",
-                "transformOrigin": "center",
-              }
-            }
-          />
-        </svg>
-        <div
-          className="game__mistakes"
-        >
-          <div
-            className="wrong"
-          />
-          <div
-            className="wrong"
-          />
-          <div
-            className="wrong"
-          />
-        </div>
-      </header>
-      <section
-        className="game__screen"
+          John Snow
+        </label>
+      </div>
+      <div
+        className="artist"
       >
-        <h2
-          className="game__title"
+        <input
+          className="artist__input visually-hidden"
+          id="answer-1"
+          name="answer"
+          onChange={[Function]}
+          type="radio"
+          value="answer-1"
+        />
+        <label
+          className="artist__name"
+          htmlFor="answer-1"
         >
-          Кто исполняет эту песню?
-        </h2>
-        <div
-          className="game__track"
+          <img
+            alt="Jack Daniels"
+            className="artist__picture"
+            src="https://api.adorable.io/avatars/128/1"
+          />
+          Jack Daniels
+        </label>
+      </div>
+      <div
+        className="artist"
+      >
+        <input
+          className="artist__input visually-hidden"
+          id="answer-2"
+          name="answer"
+          onChange={[Function]}
+          type="radio"
+          value="answer-2"
+        />
+        <label
+          className="artist__name"
+          htmlFor="answer-2"
         >
-          <div
-            className="track"
-          >
-            <button
-              className="track__button track__button--play"
-              type="button"
-            />
-            <div
-              className="track__status"
-            >
-              <audio />
-            </div>
-          </div>
-        </div>
-        <form
-          className="game__artist"
-        >
-          <div
-            className="artist"
-          >
-            <input
-              className="artist__input visually-hidden"
-              id="answer-1"
-              name="answer"
-              onClick={[Function]}
-              type="radio"
-              value="artist-1"
-            />
-            <label
-              className="artist__name"
-              htmlFor="answer-1"
-            >
-              <img
-                alt="Пелагея"
-                className="artist__picture"
-                src="https://via.placeholder.com/150/000000/FFFFFF/?text=Пелагея"
-              />
-              Пелагея
-            </label>
-          </div>
-          <div
-            className="artist"
-          >
-            <input
-              className="artist__input visually-hidden"
-              id="answer-2"
-              name="answer"
-              onClick={[Function]}
-              type="radio"
-              value="artist-1"
-            />
-            <label
-              className="artist__name"
-              htmlFor="answer-2"
-            >
-              <img
-                alt="Краснознаменная дивизия имени моей бабушки"
-                className="artist__picture"
-                src="https://via.placeholder.com/150/000000/FFFFFF/?text=КДИМБ"
-              />
-              Краснознаменная дивизия имени моей бабушки
-            </label>
-          </div>
-          <div
-            className="artist"
-          >
-            <input
-              className="artist__input visually-hidden"
-              id="answer-3"
-              name="answer"
-              onClick={[Function]}
-              type="radio"
-              value="artist-1"
-            />
-            <label
-              className="artist__name"
-              htmlFor="answer-3"
-            >
-              <img
-                alt="Lorde"
-                className="artist__picture"
-                src="https://via.placeholder.com/150/000000/FFFFFF/?text=Lorde"
-              />
-              Lorde
-            </label>
-          </div>
-        </form>
-      </section>
-    </section>
+          <img
+            alt="Jim Beam"
+            className="artist__picture"
+            src="https://api.adorable.io/avatars/128/2"
+          />
+          Jim Beam
+        </label>
+      </div>
+    </form>
   </section>
-</main>
+</section>
 `;

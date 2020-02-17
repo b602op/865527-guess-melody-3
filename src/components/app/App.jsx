@@ -10,7 +10,7 @@ import questions from "../../mocks/questions";
 
 export const App = ({errorsCount}) => {
 
-  const handleAnswer = (answer) => answer;
+  const handleAnswer = (...props) => (props);
 
   const getQuestions = (typeQuestions) => questions.filter((question) => question.type === typeQuestions);
 
@@ -20,10 +20,10 @@ export const App = ({errorsCount}) => {
         <WelcomeScreen errorsCount={errorsCount} />
       </Route>
       <Route exact path="/dev-artist">
-        <ArtistQuestionScreen questions={getQuestions(`artist`)} getAnswer={handleAnswer} />
+        <ArtistQuestionScreen question={getQuestions(`artist`)[0]} onAnswer={handleAnswer} />
       </Route>
       <Route exact path="/dev-genre">
-        <GenreQuestionScreen questions={getQuestions(`genre`)} getAnswer={handleAnswer} />
+        <GenreQuestionScreen question={getQuestions(`genre`)[0]} onAnswer={handleAnswer} />
       </Route>
     </Switch>
   </BrowserRouter>

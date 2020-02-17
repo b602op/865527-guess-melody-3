@@ -1,30 +1,36 @@
 import React from 'react';
-import GenreQuestionScreen from './genre-question-screen';
 import renderer from 'react-test-renderer';
+import GenreQuestionScreen from './genre-question-screen.jsx';
 
-const artistQuestions = [{
+const question = {
   type: `genre`,
   genre: `rock`,
   answers: [{
-    src: `url-1`,
+    src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
     genre: `rock`,
   }, {
-    src: `url-2`,
+    src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
     genre: `blues`,
   }, {
-    src: `url-3`,
+    src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
     genre: `jazz`,
   }, {
-    src: `url-4`,
+    src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
     genre: `rock`,
   }],
-}];
-const handleAnswer = () => {};
+};
 
-test(`Link changes the class when hovered`, () => {
-  const component = renderer.create(
-      <GenreQuestionScreen questions={artistQuestions} getAnswer={handleAnswer} />
-  );
-  let tree = component.toJSON();
+it(`GenreQuestionScreen is rendered correctly`, () => {
+  const tree = renderer.create((
+    <GenreQuestionScreen
+      question={question}
+      onAnswer={() => {}}
+    />
+  ), {
+    createNodeMock: () => {
+      return {};
+    }
+  }).toJSON();
+
   expect(tree).toMatchSnapshot();
 });

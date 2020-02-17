@@ -1,31 +1,33 @@
 import React from 'react';
-import ArtistQuestionScreen from './artist-question-screen';
 import renderer from 'react-test-renderer';
+import ArtistQuestionScreen from './artist-question-screen.jsx';
 
-const AVATAR_URL = `https://via.placeholder.com/150/000000/FFFFFF/?text=`;
-const artistQuestions = [{
+
+const question = {
   type: `artist`,
   song: {
-    artist: `Пелагея`,
-    src: `музыка`,
+    artist: `Jim Beam`,
+    src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
   },
   answers: [{
-    picture: `${AVATAR_URL}Пелагея`,
-    artist: `Пелагея`,
+    picture: `https://api.adorable.io/avatars/128/0`,
+    artist: `John Snow`,
   }, {
-    picture: `${AVATAR_URL}КДИМБ`,
-    artist: `Краснознаменная дивизия имени моей бабушки`,
+    picture: `https://api.adorable.io/avatars/128/1`,
+    artist: `Jack Daniels`,
   }, {
-    picture: `${AVATAR_URL}Lorde`,
-    artist: `Lorde`,
-  }]
-}];
-const handleAnswer = () => {};
+    picture: `https://api.adorable.io/avatars/128/2`,
+    artist: `Jim Beam`,
+  }],
+};
 
-test(`Link changes the class when hovered`, () => {
-  const component = renderer.create(
-      <ArtistQuestionScreen questions={artistQuestions} getAnswer={handleAnswer} />
-  );
-  let tree = component.toJSON();
+it(`ArtistQuestionScreen is rendered correctly`, () => {
+  const tree = renderer.create(
+      <ArtistQuestionScreen
+        question={question}
+        onAnswer={() => {}}
+      />
+  ).toJSON();
+
   expect(tree).toMatchSnapshot();
 });

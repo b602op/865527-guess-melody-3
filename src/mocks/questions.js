@@ -1,36 +1,34 @@
-const AVATAR_URL = `https://via.placeholder.com/150/000000/FFFFFF/?text=`;
-
 export default [
   {
     type: `genre`,
     genre: `rock`,
     answers: [{
-      src: `url-1`,
+      src: null,
       genre: `rock`,
     }, {
-      src: `url-2`,
+      src: null,
       genre: `blues`,
     }, {
-      src: `url-3`,
+      src: null,
       genre: `jazz`,
     }, {
-      src: `url-4`,
+      src: null,
       genre: `rock`,
     }],
   }, {
     type: `artist`,
     song: {
       artist: `Пелагея`,
-      src: `музыка`,
+      src: null,
     },
     answers: [{
-      picture: `${AVATAR_URL}Пелагея`,
+      picture: null,
       artist: `Пелагея`,
     }, {
-      picture: `${AVATAR_URL}КДИМБ`,
+      picture: null,
       artist: `Краснознаменная дивизия имени моей бабушки`,
     }, {
-      picture: `${AVATAR_URL}Lorde`,
+      picture: null,
       artist: `Lorde`,
     }]
   }

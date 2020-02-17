@@ -1,31 +1,41 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {PureComponent} from "react";
+import PropTypes from "prop-types";
 
-const GenreQuestionScreen = ({questions}) => {
-  const question = questions[0];
+class GenreQuestionScreen extends PureComponent {
+  constructor(props) {
+    super(props);
 
-  const handleBackGeneralMenu = () => {
-    location.pathname = `/`;
-  };
+    this.state = {
+      answers: [false, false, false, false],
+    };
+  }
 
+  render() {
+    const {onAnswer, question} = this.props;
+    const {answers: userAnswers} = this.state;
+    const {
+      answers,
+      genre,
+    } = question;
 
-  return (<main className="app">
-    <svg xmlns="http://www.w3.org/2000/svg" style={{position: `absolute`, left: `-1200em`}}>
-      <filter id="blur">
-        <feGaussianBlur in="SourceGraphic" stdDeviation="5"></feGaussianBlur>
-        <feOffset dx="0" dy="0"></feOffset>
-        <feMerge>
-          <feMergeNode></feMergeNode>
-          <feMergeNode in="SourceGraphic"></feMergeNode>
-        </feMerge>
-      </filter>
-    </svg>
-    <section className="main" id="root">
+    const getAnswer = (evt, i) => {
+      const value = evt.target.checked;
+
+      this.setState({
+        answers: [...userAnswers.slice(0, i), value, ...userAnswers.slice(i + 1)],
+      });
+    };
+
+    const toWelcomeScreen = () => {
+      location.pathname = `/`;
+    };
+
+    return (
       <section className="game game--genre">
         <header className="game__header">
-          <a className="game__back" href="#" onClick={handleBackGeneralMenu}>
+          <a className="game__back" href="#" onClick={toWelcomeScreen}>
             <span className="visually-hidden">Сыграть ещё раз</span>
-            <img className="game__logo" src="img/melody-logo-ginger.png" alt="Угадай мелодию" />
+            <img className="game__logo" src="img/melody-logo-ginger.png" alt="Угадай мелодию"/>
           </a>
 
           <svg xmlns="http://www.w3.org/2000/svg" className="timer" viewBox="0 0 780 780">
@@ -34,45 +44,51 @@ const GenreQuestionScreen = ({questions}) => {
           </svg>
 
           <div className="game__mistakes">
-            <div className="wrong"></div>
-            <div className="wrong"></div>
-            <div className="wrong"></div>
+            <div className="wrong"/>
+            <div className="wrong"/>
+            <div className="wrong"/>
           </div>
         </header>
 
         <section className="game__screen">
-          <h2 className="game__title">Выберите инди-рок треки</h2>
-          <form className="game__tracks">
-
-            {question.answers.map((answer, index) => {
-
-              return (
-                <div key={answer.src} className="track">
-                  <button className="track__button track__button--play" type="button"></button>
-                  <div className="track__status">
-                    <audio></audio>
-                  </div>
-                  <div className="game__answer">
-                    <input className="game__input visually-hidden" type="checkbox" name="answer" value="answer-1" id={`answer-${index + 1}`} />
-                    <label className="game__check" htmlFor={`answer-${index + 1}`}>Отметить</label>
-                  </div>
+          <h2 className="game__title">Выберите {genre} треки</h2>
+          <form
+            className="game__tracks"
+            onSubmit={(evt) => {
+              evt.preventDefault();
+              onAnswer(question, this.state.answers);
+            }}
+          >
+            {answers.map((answer, i) => (
+              <div key={`${i}-${answer.src}`} className="track">
+                <button className="track__button track__button--play" type="button"/>
+                <div className="track__status">
+                  <audio
+                    src={answer.src}
+                  />
                 </div>
-              );
-            })}
-
+                <div className="game__answer">
+                  <input className="game__input visually-hidden" type="checkbox" name="answer" value={`answer-${i}`}
+                    id={`answer-${i}`}
+                    checked={userAnswers[i]}
+                    onChange={(x)=>getAnswer(x, i)}
+                  />
+                  <label className="game__check" htmlFor={`answer-${i}`}>Отметить</label>
+                </div>
+              </div>
+            ))}
 
             <button className="game__submit button" type="submit">Ответить</button>
           </form>
         </section>
       </section>
-    </section>
-  </main>
-  );
-};
+    );
+  }
+}
 
 GenreQuestionScreen.propTypes = {
-  questions: PropTypes.array,
-  getAnswer: PropTypes.func,
+  onAnswer: PropTypes.func.isRequired,
+  question: PropTypes.any
 };
 
 
