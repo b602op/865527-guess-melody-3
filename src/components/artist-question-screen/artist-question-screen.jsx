@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useHistory} from 'react-router-dom';
 
 const ArtistQuestionScreen = ({questions, getAnswer}) => {
-  const history = useHistory();
   const question = questions[0];
 
   const handleBackGeneralMenu = () => {
-    history.push(`/`);
+    location.pathname = `/`;
   };
 
   return (
