@@ -70,7 +70,17 @@ const ArtistQuestionScreen = (props) => {
 
 ArtistQuestionScreen.propTypes = {
   onAnswer: PropTypes.func.isRequired,
-  question: PropTypes.any
+  question: PropTypes.shape({
+    type: PropTypes.string,
+    song: PropTypes.shape({
+      artist: PropTypes.string,
+      src: PropTypes.string,
+    }),
+    answers: PropTypes.arrayOf({
+      picture: PropTypes.string,
+      artist: PropTypes.string,
+    }),
+  })
 };
 
 export default ArtistQuestionScreen;

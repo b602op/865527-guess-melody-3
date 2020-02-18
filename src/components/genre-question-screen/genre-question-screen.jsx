@@ -88,7 +88,14 @@ class GenreQuestionScreen extends PureComponent {
 
 GenreQuestionScreen.propTypes = {
   onAnswer: PropTypes.func.isRequired,
-  question: PropTypes.any
+  question: PropTypes.shape({
+    type: PropTypes.string,
+    genre: PropTypes.string,
+    answers: PropTypes.arrayOf({
+      src: PropTypes.string,
+      genre: PropTypes.string,
+    }),
+  })
 };
 
 
