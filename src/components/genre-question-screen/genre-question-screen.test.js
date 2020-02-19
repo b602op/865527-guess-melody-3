@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {BrowserRouter as Router} from 'react-router-dom';
 
-import GenreQuestionScreen from './genre-question-screen.jsx';
+import GenreQuestionScreen from './genre-question-screen';
 
 const question = {
   type: `genre`,

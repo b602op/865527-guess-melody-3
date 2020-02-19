@@ -1,6 +1,7 @@
 import React from 'react';
-import WelcomeScreen from './welcome-screen';
 import renderer from 'react-test-renderer';
+
+import WelcomeScreen from './welcome-screen';
 
 test(`Link changes the class when hovered`, () => {
   const component = renderer.create(
