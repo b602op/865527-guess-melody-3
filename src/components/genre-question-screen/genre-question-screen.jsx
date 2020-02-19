@@ -1,5 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
+import {withRouter} from "react-router-dom";
 
 class GenreQuestionScreen extends PureComponent {
   constructor(props) {
@@ -27,7 +28,8 @@ class GenreQuestionScreen extends PureComponent {
     };
 
     const toWelcomeScreen = () => {
-      location.pathname = `/`;
+      const {history} = this.props;
+      history.push(`/`);
     };
 
     return (
@@ -91,12 +93,14 @@ GenreQuestionScreen.propTypes = {
   question: PropTypes.shape({
     type: PropTypes.string,
     genre: PropTypes.string,
-    answers: PropTypes.arrayOf({
+    answers: PropTypes.arrayOf(PropTypes.shape({
       src: PropTypes.string,
       genre: PropTypes.string,
-    }),
-  })
+    })),
+  }),
+  history: PropTypes.object,
 };
 
 
-export default GenreQuestionScreen;
+export default withRouter(GenreQuestionScreen);
+

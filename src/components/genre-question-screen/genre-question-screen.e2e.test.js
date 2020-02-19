@@ -1,7 +1,8 @@
 import React from "react";
-import {configure, shallow} from "enzyme";
+import {configure, mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import GenreQuestionScreen from "./genre-question-screen.jsx";
+import {BrowserRouter as Router} from 'react-router-dom';
 
 configure({adapter: new Adapter()});
 
@@ -33,10 +34,10 @@ const mock = {
 it(`When user answers genre question form is not sent`, () => {
   const {question} = mock;
   const onAnswer = jest.fn();
-  const genreQuestion = shallow(<GenreQuestionScreen
+  const genreQuestion = mount(<Router><GenreQuestionScreen
     onAnswer={onAnswer}
     question={question}
-  />);
+  /></Router>);
 
   const form = genreQuestion.find(`form`);
   const formSendPrevention = jest.fn();
@@ -53,10 +54,10 @@ it(`User answer passed to callback is consistent with "userAnswer" prop`, () => 
   const onAnswer = jest.fn((...args) => [...args]);
   const userAnswer = [false, true, false, false];
 
-  const genreQuestion = shallow(<GenreQuestionScreen
+  const genreQuestion = mount(<Router><GenreQuestionScreen
     onAnswer={onAnswer}
     question={question}
-  />);
+  /></Router>);
 
   const form = genreQuestion.find(`form`);
   const inputTwo = genreQuestion.find(`input`).at(1);
@@ -72,4 +73,6 @@ it(`User answer passed to callback is consistent with "userAnswer" prop`, () => 
   expect(
       genreQuestion.find(`input`).map((it) => it.prop(`checked`))
   ).toEqual(userAnswer);
+
+  expect(onAnswer).toHaveBeenCalledWith(mock.question, [false, true, false, false]);
 });

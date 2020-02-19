@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {withRouter} from "react-router-dom";
 
 const ArtistQuestionScreen = (props) => {
   const {onAnswer, question} = props;
@@ -9,7 +10,8 @@ const ArtistQuestionScreen = (props) => {
   } = question;
 
   const toWelcomeScreen = () => {
-    location.pathname = `/`;
+    const {history} = props;
+    history.push(`/`);
   };
 
   const getAnswer = (evt, questn, answer) => {
@@ -76,11 +78,12 @@ ArtistQuestionScreen.propTypes = {
       artist: PropTypes.string,
       src: PropTypes.string,
     }),
-    answers: PropTypes.arrayOf({
+    answers: PropTypes.arrayOf(PropTypes.shape({
       picture: PropTypes.string,
       artist: PropTypes.string,
-    }),
-  })
+    })),
+  }),
+  history: PropTypes.object,
 };
 
-export default ArtistQuestionScreen;
+export default withRouter(ArtistQuestionScreen);

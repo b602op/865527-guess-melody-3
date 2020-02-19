@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import ArtistQuestionScreen from './artist-question-screen.jsx';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 
 const question = {
@@ -23,10 +24,12 @@ const question = {
 
 it(`ArtistQuestionScreen is rendered correctly`, () => {
   const tree = renderer.create(
-      <ArtistQuestionScreen
-        question={question}
-        onAnswer={() => {}}
-      />
+      <Router>
+        <ArtistQuestionScreen
+          question={question}
+          onAnswer={() => {}}
+        />
+      </Router>
   ).toJSON();
 
   expect(tree).toMatchSnapshot();
