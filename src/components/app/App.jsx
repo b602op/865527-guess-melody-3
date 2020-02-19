@@ -10,7 +10,9 @@ import questions from "../../mocks/questions";
 
 export const App = ({errorsCount}) => {
 
-  const handleAnswer = (...props) => {console.log(props)};
+  const handleAnswer = (...props) => {
+    return props;
+  };
 
   const getQuestions = (typeQuestions) => questions.filter((question) => question.type === typeQuestions);
 
