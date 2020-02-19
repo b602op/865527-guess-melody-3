@@ -8,7 +8,7 @@ import GenreQuestionScreen from '../genre-question-screen/genre-question-screen'
 import questions from "../../mocks/questions";
 
 
-const App = ({errorsCount}) => {
+export const App = ({errorsCount}) => {
 
   const handleAnswer = () => {};
 
@@ -33,5 +33,3 @@ const App = ({errorsCount}) => {
 App.propTypes = {
   errorsCount: PropTypes.number.isRequired,
 };
-
-export default App;
