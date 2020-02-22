@@ -1,35 +1,37 @@
+const AVATAR_URL = `https://api.adorable.io/avatars/128`;
+
 export default [
   {
     type: `genre`,
     genre: `rock`,
     answers: [{
-      src: null,
+      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
       genre: `rock`,
     }, {
-      src: null,
+      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
       genre: `blues`,
     }, {
-      src: null,
+      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
       genre: `jazz`,
     }, {
-      src: null,
+      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
       genre: `rock`,
     }],
   }, {
     type: `artist`,
     song: {
-      artist: `Пелагея`,
-      src: null,
+      artist: `Jim Beam`,
+      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
     },
     answers: [{
-      picture: null,
-      artist: `Пелагея`,
+      picture: `${AVATAR_URL}/${Math.random()}`,
+      artist: `John Snow`,
     }, {
-      picture: null,
-      artist: `Краснознаменная дивизия имени моей бабушки`,
+      picture: `${AVATAR_URL}/${Math.random()}`,
+      artist: `Jack Daniels`,
     }, {
-      picture: null,
-      artist: `Lorde`,
-    }]
-  }
+      picture: `${AVATAR_URL}/${Math.random()}`,
+      artist: `Jim Beam`,
+    }],
+  },
 ];
