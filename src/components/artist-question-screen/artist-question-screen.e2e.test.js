@@ -1,10 +1,8 @@
-// eslint-disable
 import React from "react";
-import {configure, mount} from "enzyme";
+import {configure, shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import {BrowserRouter as Router} from 'react-router-dom';
 
-import ArtistQuestionScreen from "./artist-question-screen.jsx";
+import ArtistQuestionScreen from "./artist-question-screen";
 
 configure({adapter: new Adapter()});
 
@@ -46,10 +44,11 @@ it(`Click on user answer should pass to the callback data-object from which this
     picture: `pic-one`,
   };
 
-  const screen = mount(<Router><ArtistQuestionScreen
+  const screen = shallow(<ArtistQuestionScreen
     onAnswer={onAnswer}
     question={question}
-  /></Router>);
+    renderPlayer={() => {}}
+  />);
 
   const answerInputs = screen.find(`input`);
   const answerOne = answerInputs.at(0);
@@ -60,7 +59,4 @@ it(`Click on user answer should pass to the callback data-object from which this
 
   expect(onAnswer.mock.calls[0][0]).toMatchObject(question);
   expect(onAnswer.mock.calls[0][1]).toMatchObject(userAnswer);
-
-  expect(onAnswer).toHaveBeenCalledWith(mock.question, {picture: `pic-one`, artist: `one`});
-
 });

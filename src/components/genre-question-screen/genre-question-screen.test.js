@@ -1,35 +1,33 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {BrowserRouter as Router} from 'react-router-dom';
-
 import GenreQuestionScreen from './genre-question-screen';
+
 
 const question = {
   type: `genre`,
   genre: `rock`,
   answers: [{
-    src: null,
+    src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
     genre: `rock`,
   }, {
-    src: null,
+    src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
     genre: `blues`,
   }, {
-    src: null,
+    src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
     genre: `jazz`,
   }, {
-    src: null,
+    src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
     genre: `rock`,
   }],
 };
 
 it(`GenreQuestionScreen is rendered correctly`, () => {
   const tree = renderer.create((
-    <Router>
-      <GenreQuestionScreen
-        question={question}
-        onAnswer={() => {}}
-      />
-    </Router>
+    <GenreQuestionScreen
+      question={question}
+      onAnswer={() => {}}
+      renderPlayer={() => {}}
+    />
   ), {
     createNodeMock: () => {
       return {};

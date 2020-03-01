@@ -8,16 +8,18 @@ Enzyme.configure({
 });
 
 it(`Should welcome button be pressed`, () => {
-  const onButtonClick = jest.fn();
+  const onWelcomeButtonClick = jest.fn();
+
   const welcomeScreen = shallow(
       <WelcomeScreen
-        errorsCount={999}
-        handleClick={onButtonClick}
+        errorsCount={3}
+        onWelcomeButtonClick={onWelcomeButtonClick}
       />
   );
 
   const welcomeButton = welcomeScreen.find(`button.welcome__button`);
 
   welcomeButton.props().onClick();
-  expect(onButtonClick.mock.calls.length).toBe(0);
+
+  expect(onWelcomeButtonClick.mock.calls.length).toBe(1);
 });
