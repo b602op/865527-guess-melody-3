@@ -17,7 +17,7 @@ const withActivePlayer = (Component) => {
 
       return <Component
         {...this.props}
-        renderPlayer={(src, id) => {
+        renderPlayer={(src, id = 0) => {
           return (
             <AudioPlayer
               src={src}
